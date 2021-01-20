@@ -25,8 +25,12 @@ namespace GloboTicket.TicketManagement.Application.Feactures.Events.Commands.Cre
             _mapper = mapper;
             _eventRepository = eventRepository;
             _emailService = emailService;
-            //_logger = logger;
+            //_logger = logger; 
         }
+
+
+
+
 
         public async Task<Guid> Handle(CreateEventCommand request, CancellationToken cancellationToken)
         {
