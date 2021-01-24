@@ -1,4 +1,5 @@
-﻿using GloboTicket.TicketManagement.Domain.Common;
+﻿using GloboTicket.TicketManagement.Application.Contracts;
+using GloboTicket.TicketManagement.Domain.Common;
 using GloboTicket.TicketManagement.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,18 +12,18 @@ namespace GloboTicket.TicketManagement.Persistence
 {
     public class GloboTicketDbContext : DbContext
     {
-        //private readonly ILoggedInUserService _loggedInUserService;
+        private readonly ILoggedInUserService _loggedInUserService;
 
         public GloboTicketDbContext(DbContextOptions<GloboTicketDbContext> options)
           : base(options)
         {
         }
 
-        //public GloboTicketDbContext(DbContextOptions<GloboTicketDbContext> options, ILoggedInUserService loggedInUserService)
-        //    : base(options)
-        //{
-        //    _loggedInUserService = loggedInUserService;
-        //}
+        public GloboTicketDbContext(DbContextOptions<GloboTicketDbContext> options, ILoggedInUserService loggedInUserService)
+            : base(options)
+        {
+            _loggedInUserService = loggedInUserService;
+        }
 
 
         public DbSet<Event> Events { get; set; }
